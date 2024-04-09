@@ -8,14 +8,18 @@ btn.addEventListener("click", async () => {
   try {
     let input = document.querySelector("input");
     let value = input.value;
-    input.value = "";
+    if (value == "") {
+      alert("Please Enter the Valid Character Name");
+    } else {
+      input.value = "";
 
-    // Fetched the API
+      // Fetched the API
 
-    let res = await axios.get(harry_potter_api + value);
-    let ans = res.data.data[0];
+      let res = await axios.get(harry_potter_api + value);
+      let ans = res.data.data[0];
 
-    show(ans);
+      show(ans);
+    }
   } catch (e) {
     alert("Not a Valid Character Name");
   }
@@ -28,14 +32,18 @@ window.addEventListener("keypress", async (e) => {
     if (e.key === "Enter") {
       let input = document.querySelector("input");
       let value = input.value;
-      input.value = "";
+      if (value == "") {
+        alert("Please Enter the Valid Character Name");
+      } else {
+        input.value = "";
 
-      // Fetched the API
+        // Fetched the API
 
-      let res = await axios.get(harry_potter_api + value);
-      let ans = res.data.data[0];
+        let res = await axios.get(harry_potter_api + value);
+        let ans = res.data.data[0];
 
-      show(ans);
+        show(ans);
+      }
     }
   } catch (e) {
     alert("Not a Valid Character Name");
